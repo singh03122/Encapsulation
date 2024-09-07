@@ -1,0 +1,262 @@
+Q1.What is Encapsulation in Java? Why is it called Data hiding ?
+
+Ans:-Encapsulation is a fundamental concept in object-oriented programming (OOP) and is widely used in Java to achieve data hiding and abstraction. It refers to the practice of bundling the data (variables) and methods (functions) that operate on the data into a single unit or class and restricting access to some of the object's components. This means that the internal state of an object is hidden from the outside world and can only be accessed or modified through public methods.
+
+Key Aspects of Encapsulation
+Data Hiding:
+
+Encapsulation allows for data hiding by making the fields of a class private, so they cannot be directly accessed from outside the class. Access to these fields is provided through public getter and setter methods.
+Public Methods:
+
+Public methods (getters and setters) provide controlled access to the private fields of a class. Getters are used to retrieve the value of a field, while setters are used to modify the value of a field.
+Controlled Access:
+
+By using encapsulation, you can control how data is accessed and modified. This helps in maintaining the integrity of the data and enforcing rules or constraints on how the data can be changed.
+Flexibility and Maintenance:
+
+Encapsulation provides flexibility in changing the internal implementation of a class without affecting the classes that use it. If the internal details need to be updated, only the class itself needs to be modified, and the external classes that use it remain unaffected.
+Abstraction:
+
+Encapsulation helps achieve abstraction by hiding the complex implementation details and showing only the essential features of the object.
+
+Q2.What are the important features of Encapsulation ?
+
+Ans:- Encapsulation is a key principle of object-oriented programming (OOP) that provides several important features and benefits. Here are some of the crucial features of encapsulation:
+
+1. Data Hiding
+Definition: Encapsulation allows you to hide the internal state of an object from the outside world. This means that the internal details of the object (such as fields and implementation details) are not exposed to other objects.
+Benefit: Protects the object from unintended interference and misuse, and ensures that the object's state remains consistent.
+2. Controlled Access
+Definition: Encapsulation provides controlled access to the object's fields through public methods (getters and setters). The fields themselves are typically marked as private.
+Benefit: You can define how the internal state can be accessed and modified. For example, you can validate or format data before it's set, or provide read-only access to certain fields.
+3. Increased Flexibility
+Definition: The internal implementation of a class can be changed without affecting other classes that use it. This is because the internal state and behavior are hidden behind a well-defined interface.
+Benefit: Allows you to modify or improve the class's implementation without changing its external behavior or requiring changes in other parts of the code.
+4. Improved Maintenance
+Definition: Encapsulation simplifies maintenance by isolating changes. Since the internal implementation is hidden, you only need to update the class itself when changes are required.
+Benefit: Reduces the risk of introducing bugs in other parts of the program when changes are made to the encapsulated class.
+5. Enhanced Data Integrity
+Definition: Encapsulation ensures that the data is accessed and modified only through predefined methods, which can include validation and error-checking code.
+Benefit: Maintains data integrity by preventing invalid data from being set or used.
+6. Abstraction
+Definition: Encapsulation contributes to abstraction by hiding complex implementation details and exposing only essential features through a simplified interface.
+Benefit: Helps users interact with the class without needing to understand its internal workings.
+7. Ease of Use
+Definition: Encapsulation makes it easier to use and understand classes because users interact with a well-defined interface rather than dealing with the internal complexity.
+Benefit: Facilitates the development of reusable and modular code.
+8. Security
+Definition: By hiding the internal state and requiring interaction through methods, encapsulation provides a layer of security for the object's data.
+Benefit: Reduces the potential for accidental or malicious changes to the object's state.
+
+Q3.What are getter and setter methods in Java Explain with an example ?
+
+Ans:- Getter and Setter methods in Java are special methods used to access and update the values of private fields in a class. They are a fundamental part of encapsulation and provide controlled access to the fields of a class.
+
+Getter Methods
+Purpose: To retrieve or "get" the value of a private field.
+Naming Convention: The method name typically starts with get, followed by the name of the field with the first letter capitalized. For boolean fields, is is used instead of get.
+Return Type: The return type is the same as the type of the private field.
+Setter Methods
+Purpose: To set or update the value of a private field.
+Naming Convention: The method name typically starts with set, followed by the name of the field with the first letter capitalized.
+Parameters: The method takes a parameter that represents the new value for the private field.
+Return Type: The return type is void.
+
+Q4.What is the use of this keyword explain with an example ?
+
+Ans:- The this keyword in Java is a reference variable that refers to the current object instance. It is commonly used within an instance method or constructor to refer to the current object. The this keyword serves several purposes:
+
+Uses of this Keyword
+Distinguishing Instance Variables from Parameters:
+
+When instance variables and parameters have the same name, this is used to distinguish between them.
+Calling Other Constructors:
+
+Within a constructor, this() can be used to call another constructor in the same class, facilitating constructor chaining.
+Returning the Current Object:
+
+In method chaining, this can be returned to allow multiple method calls on the same object.
+Passing the Current Object:
+
+this can be passed as an argument to other methods or constructors, allowing the current object to be used.
+
+Example Demonstrating Various Uses of this :-
+
+// Class with various uses of 'this'
+public class Employee {
+    // Instance variables
+    private String name;
+    private int age;
+
+    // Constructor
+    public Employee(String name, int age) {
+        // Distinguishing between instance variables and parameters
+        this.name = name;
+        this.age = age;
+    }
+
+    // Constructor chaining
+    public Employee(String name) {
+        this(name, 0); // Calling another constructor
+    }
+
+    // Method to return the current object
+    public Employee setName(String name) {
+        this.name = name;
+        return this; // Returning the current object
+    }
+
+    // Method to display employee details
+    public void displayInfo() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+    }
+
+    // Method to pass the current object as an argument
+    public void updateName(Employee emp) {
+        emp.setName(this.name + " Updated");
+    }
+
+    public static void main(String[] args) {
+        // Creating an instance using the parameterized constructor
+        Employee emp1 = new Employee("Alice", 30);
+
+        // Using the 'this' keyword to access instance variables and methods
+        emp1.displayInfo();
+
+        // Using constructor chaining
+        Employee emp2 = new Employee("Bob");
+        emp2.displayInfo();
+
+        // Method chaining
+        emp1.setName("Alice Johnson").displayInfo();
+
+        // Passing the current object as an argument
+        emp1.updateName(emp2);
+        emp2.displayInfo();
+    }
+}
+
+Q5.What is the advantage of Encapsulation ?
+
+Ans:- Encapsulation is one of the fundamental principles of object-oriented programming (OOP) and offers several advantages in software development. It involves bundling the data (fields) and methods (functions) that operate on the data into a single unit, known as a class, and restricting access to some of the object's components. Here’s a detailed look at the advantages of encapsulation:
+
+Advantages of Encapsulation
+Control Over Data:
+
+Access Control: Encapsulation allows you to control how the data is accessed and modified. By making fields private and providing public getter and setter methods, you can enforce validation rules and prevent unauthorized access.
+Example: If you have a Person class with a private age field, you can provide a setter method that only allows setting a positive age.
+Improved Code Maintenance:
+
+Modularity: Encapsulation helps to keep the implementation details hidden and separate from the code that uses the class. This makes it easier to update and maintain code since changes in the internal implementation do not affect external code.
+Example: If you change the way data is stored internally, you only need to modify the internal implementation without changing the code that uses the class.
+Increased Flexibility and Extensibility:
+
+Code Reusability: Encapsulation allows you to create classes that are self-contained and can be reused across different parts of the application or in different projects.
+Example: You can reuse a BankAccount class in various applications without worrying about how it manages the account details internally.
+Enhanced Security:
+
+Data Hiding: By keeping fields private and exposing only necessary methods, encapsulation hides sensitive data and provides controlled access, reducing the risk of accidental or malicious modification.
+Example: The Employee class may hide salary details from outside access and only allow modification through secure methods.
+Simplified Debugging and Testing:
+
+Focused Testing: Encapsulated classes can be tested independently from other parts of the system. This helps in identifying issues within a class without affecting the overall system.
+Example: You can test the calculateSalary method of an Employee class in isolation to ensure it works correctly.
+Improved Code Readability and Maintenance:
+
+Clear Interface: Encapsulation makes it clear what the class does and how it is used through its public methods. This improves code readability and helps other developers understand the class's purpose and usage.
+Example: The Customer class might have clear public methods like placeOrder and updateAddress, making its functionality obvious.
+
+Q6.How to achieve encapsulation in Java? Give an example ?
+
+Ans:- o achieve encapsulation in Java, you need to follow a few key steps:
+
+Declare the Fields as Private:
+
+Make the class fields private to restrict direct access from outside the class. This prevents unauthorized access and modification of the fields.
+Provide Public Getter and Setter Methods:
+
+Create public methods to get and set the values of the private fields. These methods act as an interface to access and modify the data, while keeping the actual implementation details hidden.
+Use Constructors for Initialization:
+
+Provide constructors to initialize the object with valid data. You can use the constructor to enforce initial conditions and ensure that the object starts in a valid state.
+Example Demonstrating Encapsulation
+    Here's a simple example of how to achieve encapsulation in Java :-
+// Encapsulation example in Java
+
+// Class representing a bank account
+public class BankAccount {
+    // Private fields
+    private String accountNumber;
+    private double balance;
+
+    // Constructor to initialize the account
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        if (initialBalance > 0) {
+            this.balance = initialBalance;
+        } else {
+            System.out.println("Initial balance must be positive.");
+            this.balance = 0;
+        }
+    }
+
+    // Getter for accountNumber
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    // Setter for accountNumber
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    // Getter for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Deposit amount must be positive.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+}
+
+// Main class to test the encapsulation
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of BankAccount
+        BankAccount account = new BankAccount("123456789", 1000);
+
+        // Accessing and modifying data using public methods
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Balance: $" + account.getBalance());
+
+        // Performing transactions
+        account.deposit(500);
+        System.out.println("Balance after deposit: $" + account.getBalance());
+
+        account.withdraw(200);
+        System.out.println("Balance after withdrawal: $" + account.getBalance());
+
+        // Attempting to withdraw an invalid amount
+        account.withdraw(2000); // Should show an error message
+    }
+}
+
+
+
+
